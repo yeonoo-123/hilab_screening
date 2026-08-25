@@ -1,0 +1,4 @@
+.venv
+data/AACT/*
+data/AACT/raw
+data/interim
