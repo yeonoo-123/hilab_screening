@@ -56,7 +56,7 @@ import pandas as pd
 
 # SEC requires a contact address; requests without one get a 403.
 # Set it here or export SEC_USER_AGENT="Jane Doe, Univ of X, j@x.edu".
-SEC_USER_AGENT = "Yeonoo Jeong, UCSB, yeonoo@ucsb.edu"
+SEC_USER_AGENT = ""
 
 START_YEAR, END_YEAR = 2016, 2026
 
