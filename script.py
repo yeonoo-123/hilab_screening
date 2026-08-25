@@ -18,12 +18,6 @@ One script, three stages:
                 Phase distribution of lead-sponsor trials, Big Pharma vs
                 Biotech, plus a sample-construction table.
 
-Run everything:      python pipeline.py
-Rebuild one stage:   python pipeline.py --stage firms --force
-
-Measurement choices that matter are collected in SETTINGS below and
-restated in README.md. Two rules are enforced throughout:
-
   * Entity resolution is exact-key only. Sponsor and SEC names are
     normalized to a canonical key and joined on equality; nothing is
     merged on fuzzy similarity, because false positives there are
