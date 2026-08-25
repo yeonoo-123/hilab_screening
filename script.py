@@ -55,7 +55,7 @@ import pandas as pd
 # =====================================================================
 
 # SEC requires a contact address; requests without one get a 403.
-# Set it here or export SEC_USER_AGENT="Jane Doe, Univ of X, j@x.edu".
+# Set it here or export SEC_USER_AGENT="Name, SChool, email".
 SEC_USER_AGENT = ""
 
 START_YEAR, END_YEAR = 2016, 2026
@@ -136,22 +136,6 @@ def read_table(path: Path) -> pd.DataFrame:
 def table_exists(path: Path) -> bool:
     return path.with_suffix(".parquet").exists() or path.with_suffix(".csv").exists()
 
-
-# =====================================================================
-# Fetch with an on-disk cache and a provenance manifest
-# =====================================================================
-
-
-def _user_agent() -> str:
-    import os
-    ua = SEC_USER_AGENT or os.environ.get("SEC_USER_AGENT", "")
-    if not ua.strip():
-        sys.exit(
-            "SEC_USER_AGENT is not set. SEC blocks requests without a contact "
-            "address. Set SEC_USER_AGENT at the top of pipeline.py, or export "
-            'SEC_USER_AGENT="Your Name, Institution, you@example.edu".'
-        )
-    return ua
 
 
 def fetch_json(url: str, retries: int = 3, quiet_404: bool = False) -> dict | None:
